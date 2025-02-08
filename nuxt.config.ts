@@ -14,11 +14,8 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
   ],
 
-  // SSG config
-  nitro: {
-    prerender: {
-      routes: [],
-    },
+  routeRules: {
+    '/**': { isr: 60 },
   },
 
   // disable auto import

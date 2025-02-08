@@ -68,6 +68,23 @@ You can also use `useAPI`, a wrapper function for useFetch that utilizes `$api`.
 const { data, ...rest } = await useAPI<Todo[]>('/todos')
 ```
 
+<br/>
+
+## CDN Caching
+
+This configuration sets 60-second ISR caching for all routes. (You can deploy on Netlify or Vercel.)
+
+You can further extend this by adding custom settings like SSR, SPA, and SSG for specific routes.
+
+```ts
+export default defineNuxtConfig({
+  routeRules: {
+    '/**': { isr: 60 },
+    // Custom routing rules can be applied here.
+    // ex) '/dashboard': { isr: true }
+  },
+})
+```
 
 <br/>
 
