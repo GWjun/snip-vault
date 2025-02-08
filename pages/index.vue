@@ -7,14 +7,15 @@
     <div>
       <div>{{ data?.user?.name }}</div>
       <div>{{ data?.user?.email }}</div>
-      <Button @click="signIn('github')">Github</Button>
+      <Button @click="signIn('github')">SignIn</Button>
+      <Button @click="signOut">SignOut</Button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
   import { useCounterStore } from '~/stores/counter'
-  const { signIn, data } = useAuth()
+  const { signIn, signOut, data } = useAuth()
 
   const counter = useCounterStore()
 </script>
