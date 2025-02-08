@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
+    '@prisma/nuxt',
   ],
 
   routeRules: {
