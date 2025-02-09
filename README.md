@@ -93,7 +93,7 @@ export default defineNuxtConfig({
 Install the dependencies:
 
 ```bash
-pnpm install
+yarn install
 ```
 
 ### Development Server
@@ -101,7 +101,7 @@ pnpm install
 Start the development server at `http://localhost:3000`:
 
 ```bash
-pnpm dev
+yarn dev
 ```
 
 ### Production
@@ -109,13 +109,13 @@ pnpm dev
 Build the application for production:
 
 ```bash
-pnpm build
+yarn build
 ```
 
 Preview the production build locally:
 
 ```bash
-pnpm preview
+yarn preview
 ```
 
 See the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more info.
