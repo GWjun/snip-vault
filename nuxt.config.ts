@@ -23,6 +23,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/**': { isr: 60 },
+    '/api/**': { isr: false },
   },
 
   runtimeConfig: {
