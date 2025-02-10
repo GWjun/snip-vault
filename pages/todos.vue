@@ -6,6 +6,9 @@
       </div>
     </div>
 
+    <div>{{ data?.user?.name }}</div>
+    <div>{{ data?.user?.email }}</div>
+
     <input v-model="newTodo.title" placeholder="new todo item" />
     <button @click="addTodo">add</button>
   </div>
@@ -16,6 +19,7 @@
   import { requestPostTodos } from '~/queries/todos/requestPostTodos'
 
   const { data: todos, refresh } = await useGetTodos()
+  const { data } = useAuth()
 
   const newTodo = ref({
     title: '',
