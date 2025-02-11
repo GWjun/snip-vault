@@ -58,6 +58,9 @@ export default defineNuxtConfig({
     prefix: '',
     componentDir: './components/_common',
   },
+  colorMode: {
+    classSuffix: '',
+  },
   auth: {
     provider: {
       type: 'authjs',
@@ -65,5 +68,6 @@ export default defineNuxtConfig({
       defaultProvider: 'github',
       addDefaultCallbackUrl: true,
     },
+    globalAppMiddleware: true,
   },
 })
