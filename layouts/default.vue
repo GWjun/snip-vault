@@ -1,5 +1,10 @@
 <template>
-  <div class="relative min-h-screen">
+  <main class="relative min-h-screen">
+    <HeaderLayout />
     <slot />
-  </div>
+  </main>
 </template>
+
+<script setup lang="ts">
+  import HeaderLayout from '~/components/HeaderLayout.vue'
+</script>

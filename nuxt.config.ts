@@ -60,6 +60,7 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: '',
+    storage: 'cookie',
   },
   auth: {
     provider: {

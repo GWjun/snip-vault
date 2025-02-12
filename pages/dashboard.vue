@@ -6,7 +6,7 @@
     <Button
       class="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl text-lg"
       size="lg"
-      @click="signOut"
+      @click="signOut({ callbackUrl: '/' })"
     >
       Log Out
     </Button>
