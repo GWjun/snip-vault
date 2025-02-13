@@ -28,7 +28,8 @@
       <Button
         class="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl text-lg"
         size="lg"
-        @click="getStart"
+        :disabled="isPending"
+        @click="handleSignIn"
       >
         Get Started
       </Button>
@@ -39,22 +40,12 @@
 </template>
 
 <script setup lang="ts">
-  import { PATH } from '~/routes'
   import LandingFeatures from '~/components/LandingFeatures.vue'
+  import { useSignIn } from '~/composables/useSignIn'
 
   definePageMeta({
     auth: false,
   })
 
-  const { status, signIn } = useAuth()
-  const router = useRouter()
-
-  function getStart() {
-    if (status.value === 'authenticated') {
-      router.push(PATH.DASHBOARD)
-      return
-    }
-
-    signIn('github', { callbackUrl: PATH.DASHBOARD })
-  }
+  const { isPending, handleSignIn } = useSignIn()
 </script>

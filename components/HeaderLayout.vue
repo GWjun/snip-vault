@@ -7,12 +7,19 @@
       <div class="text-xl font-bold">Snipub</div>
     </NuxtLink>
 
-    <button
-      class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
-      @click="toggleColorMode"
-    >
-      <component :is="currentIcon" class="w-6 h-6" />
-    </button>
+    <div class="flex items-center gap-3">
+      <Button
+        v-if="status === 'authenticated'"
+        @click="signOut({ callbackUrl: '/' })"
+        >Sign Out</Button
+      >
+      <button
+        class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+        @click="toggleColorMode"
+      >
+        <component :is="currentIcon" class="w-6 h-6" />
+      </button>
+    </div>
   </header>
 </template>
 
@@ -22,10 +29,10 @@
   import { PATH } from '~/routes'
 
   const colorMode = useColorMode()
-  const { status } = useAuth()
+  const { status, signOut } = useAuth()
 
   const linkUrl = computed(() =>
-    status.value === 'authenticated' ? PATH.DASHBOARD : '/',
+    status.value === 'authenticated' ? PATH.SNIPPETS : '/',
   )
 
   const currentIcon = computed(() =>

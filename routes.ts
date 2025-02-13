@@ -1,3 +1,3 @@
 export const PATH = {
-  DASHBOARD: '/dashboard',
+  SNIPPETS: '/snippets',
 } as const
