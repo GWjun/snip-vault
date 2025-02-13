@@ -34,35 +34,13 @@
       </Button>
     </div>
 
-    <div
-      class="flex items-center justify-between max-w-5xl mx-auto py-12 px-6 mt-28"
-    >
-      <div class="flex flex-col w-1/2 pr-10">
-        <h3 class="text-3xl font-semibold mb-8">
-          <span class="text-primary">Copy</span>
-          With Ease
-        </h3>
-        <p class="text-gray-400 mb-12">
-          Quick and easy access to copy and paste your favorite code snippets
-          whenever needed.
-        </p>
-      </div>
-
-      <div class="w-1/2 pl-10">
-        <NuxtImg
-          class="rounded-lg shadow-lg object-cover"
-          src="/images/sample.webp"
-          alt="Code Snippet"
-          width="448"
-          height="auto"
-        />
-      </div>
-    </div>
+    <LandingFeatures />
   </div>
 </template>
 
 <script setup lang="ts">
   import { PATH } from '~/routes'
+  import LandingFeatures from '~/components/LandingFeatures.vue'
 
   definePageMeta({
     auth: false,
