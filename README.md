@@ -49,7 +49,7 @@ export default defineNuxtConfig({
 
 ## Custom API function
 
-You can use the `$api` function, which is a wrapper around `$fetch`. 
+You can use the `$api` function, which is a wrapper around `$fetch`.
 
 Currently, it's configured with a baseURL of '/api'.
 
