@@ -1,4 +1,6 @@
 import { PATH } from '~/routes'
+import { toast } from '~/components/_common/toast'
+import { getErrorMessage } from '#shared/ErrorStatus'
 
 export function useSignIn() {
   const { status, signIn } = useAuth()
@@ -15,8 +17,11 @@ export function useSignIn() {
       isPending.value = true
       await signIn('github', { callbackUrl: PATH.SNIPPETS })
     } catch (error) {
-      // todo: error handling
-      console.error('Authentication failed:', error)
+      void error
+      toast({
+        variant: 'destructive',
+        title: getErrorMessage('INTERNAL_SERVER_ERROR'),
+      })
     } finally {
       isPending.value = false
     }
