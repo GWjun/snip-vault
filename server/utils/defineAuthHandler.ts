@@ -1,4 +1,5 @@
 import type { EventHandler, EventHandlerRequest } from 'h3'
+import { H3Error } from 'h3'
 import prisma from '~/lib/prisma'
 import { getErrorMessage } from '~/shared/ErrorStatus'
 
@@ -29,6 +30,24 @@ export const defineAuthHandler = <T extends EventHandlerRequest, D>(
 
     event.context.user = session.user
 
-    const response = await handler(event)
-    return { response }
+    try {
+      const response = await handler(event)
+      return { response }
+    } catch (error) {
+      if (error instanceof H3Error && error.statusMessage) {
+        if (error.statusMessage === 'Validation Error') {
+          throw createError({
+            statusCode: 400,
+            statusMessage: getErrorMessage('INVALID_REQUEST'),
+          })
+        } else {
+          throw error
+        }
+      } else {
+        throw createError({
+          statusCode: 500,
+          statusMessage: getErrorMessage('INTERNAL_SERVER_ERROR'),
+        })
+      }
+    }
   })
